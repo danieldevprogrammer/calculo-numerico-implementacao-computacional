@@ -1,3 +1,4 @@
+# Implementação do Método da Bissecção:
 from prettytable import PrettyTable
 import time
 
@@ -12,28 +13,30 @@ b = int(3)
 precisao = float(0.0000000001)
 # Equação inicial para descobrir o valor de x:
 x = (a + b) / 2
+# Número máximo de interações
+maxIteracoes = 500
 
-print(f'I=[{a},{b}], Precisão={precisao} e X0={x}.')
+print(f'I=[{a},{b}], Precisão={precisao}, X0={x} e Número Máximo de Iterações={maxIteracoes}.\n')
 
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
 
 # Definindo a função que encontrará a raiz por meio do metodo da bissecção:
-
-
 def f(x):
     return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
 
 # Gerando a tabela
 tabelaResultados = PrettyTable()
-tabelaResultados.field_names = ['Iteração', 'a', 'b', 'x', 'f(a)', 'f(x)', '|f(x)|']
-tabelaResultados.float_format = ".10"  # Limitando para 10 casas decimais
+tabelaResultados.field_names = ['Iteração',
+                                'a', 'b', 'x', 'f(a)', 'f(x)', '|f(x)|']
+# Limitando para 5 casas decimais que vão aparecer na tabela
+tabelaResultados.float_format = ".15"
 
 raizConvergente = None
 numIteracoes = 0
-maxIteracoes = 500
+
 
 # Laço de repetição para que enquanto o valor absoluto de f(x) for maior do que a precisão a operação se repita:
 while abs(f(x)) > precisao and numIteracoes < maxIteracoes:
@@ -50,16 +53,24 @@ while abs(f(x)) > precisao and numIteracoes < maxIteracoes:
     numIteracoes += 1
 
     if abs(f(x)) < precisao:
-        raizConvergente = "{:.10f}".format(x)
+        raizConvergente = "{:.15f}".format(x)
 
-# Adicionando a última iteração à tabela, mesmo que a precisão já tenha sido alcançada
-tabelaResultados.add_row([numIteracoes, a, b, "{:.10f}".format(x), f(a), f(x), abs(f(x))])
+# # Adicionando a última iteração à tabela, mesmo que a precisão já tenha sido alcançada
+# tabelaResultados.add_row(
+#     [numIteracoes, a, b, "{:.10f}".format(x), f(a), f(x), abs(f(x))])
 
 # Medindo o tempo de fim do cálculo
 fimTempo = time.time()
 
 # Imprimindo a tabela de resultados
 print(tabelaResultados)
+
+# Verificando se a raiz convergente foi encontrada:
+if raizConvergente is not None:
+    print(f'\nRaiz convergente encontrada foi: {raizConvergente}')
+else:
+    print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
+
 
 # Calculando e mostrando o tempo total de cálculo
 tempoTotal = fimTempo - inicioTempo
