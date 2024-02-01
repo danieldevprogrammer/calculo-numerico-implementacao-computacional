@@ -5,13 +5,12 @@ import time
 # Variável para determinar qual será a função.
 nomeDaFuncao = 'x^3 - 9x + 5'
 print(f'Método da Secante da função f(x) = {nomeDaFuncao}')
-
-# Valor inicial do intervalo:
+# Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
 b = 1
-# A precisão da raiz.
-precisao = 0.01
+# A precisão da raíz.
+precisao = 1e-2
 # Número máximo de interações
 maxIteracoes = 500
 

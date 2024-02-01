@@ -8,18 +8,20 @@ import time
 nomeDaFuncao = '2x^4 + 4x^3 + 3x^2 - 10x - 15'
 print(f'Isolamento das raízes da função f(x) = {nomeDaFuncao}')
 # a = Início do intervalo.
-a = int(0)
+a = 0
 # b = Final do intervalo.
-b = int(3)
+b = 3
 # h = Amplitude do intervalo.
-amplitude = float(0.5)
+amplitude = 0.5
 print(f'I=[{a},{b}] e Amplitude={amplitude}.\n')
 
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
 # Função para isolamento das Raízes:
-def f(x):  
+
+
+def f(x):
     return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
 
@@ -49,7 +51,8 @@ x = np.linspace(a, b, 100)
 y = f(x)
 
 plt.plot(x, y)
-plt.scatter(valoresDeX, valoresDeY, color='red', label='Pontos para isolamento de raízes')
+plt.scatter(valoresDeX, valoresDeY, color='red',
+            label='Pontos para isolamento de raízes')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title(f'Função f(x) = {nomeDaFuncao} no I=[{a}, {b}] e h={amplitude}')

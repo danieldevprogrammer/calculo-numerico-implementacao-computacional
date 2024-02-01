@@ -6,11 +6,11 @@ import time
 nomeDaFuncao = 'x^3 - 9x + 5'
 print(f'Método da Bissecção da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
-a = int(0)
+a = 0
 # Valor final do intervalo:
-b = int(1)
+b = 1
 # A precisão da raíz.
-precisao = float(0.01)
+precisao = 1e-2
 # Equação inicial para descobrir o valor de x:
 x = (a + b) / 2
 # Número máximo de interações
@@ -29,8 +29,10 @@ def f(x):
 
 # Gerando a tabela
 tabelaResultados = PrettyTable()
-tabelaResultados.field_names = ['Iteração', 'a', 'b', 'x', 'f(a)', 'f(x)', '|f(x)|']
-tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais que vão aparecer na tabela
+tabelaResultados.field_names = ['Iteração',
+                                'a', 'b', 'x', 'f(a)', 'f(x)', '|f(x)|']
+# Limitando para 5 casas decimais que vão aparecer na tabela
+tabelaResultados.float_format = ".5"
 
 raizConvergente = None
 numIteracoes = 0

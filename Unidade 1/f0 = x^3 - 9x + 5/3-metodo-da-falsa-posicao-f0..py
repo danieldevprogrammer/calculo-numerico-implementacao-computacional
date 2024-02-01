@@ -6,11 +6,11 @@ import time
 nomeDaFuncao = 'x^3 - 9x + 5'
 print(f'Método da Falsa Posição da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
-a = int(0)
+a = 0
 # Valor final do intervalo:
-b = int(1)
+b = 1
 # A precisão da raíz.
-precisao = float(0.01)
+precisao = 1e-2
 # Número máximo de interações
 maxIteracoes = 500
 
@@ -20,17 +20,23 @@ print(f'I=[{a},{b}], Precisão={precisao} e Número Máximo de Iterações={maxI
 inicioTempo = time.time()
 
 # Definindo a função f(x):
-def f(x):  
+
+
+def f(x):
     return x**3 - 9 * x + 5
 
 # Definindo a função que encontrará a raiz por meio do metodo da Falsa Posição:
+
+
 def falsaPosicao(a, b, precisao, maxIteracoes):
     if f(a) * f(b) >= 0:
-        raise ValueError("Os valores de 'a' e 'b' devem ser tais que f(a) * f(b) < 0.")
+        raise ValueError(
+            "Os valores de 'a' e 'b' devem ser tais que f(a) * f(b) < 0.")
 
     # Gerando a tabela
     tabelaResultados = PrettyTable()
-    tabelaResultados.field_names = ['Iteração','a', 'b', 'x', 'f(a)', 'f(b)', 'f(x)', '|f(x)|']
+    tabelaResultados.field_names = [
+        'Iteração', 'a', 'b', 'x', 'f(a)', 'f(b)', 'f(x)', '|f(x)|']
     tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
 
     # Inicializando raizConvergente como None
@@ -38,7 +44,8 @@ def falsaPosicao(a, b, precisao, maxIteracoes):
 
     for i in range(maxIteracoes):
         x = ((a * f(b)) - (b * f(a))) / (f(b) - f(a))
-        tabelaResultados.add_row([i, a, b, "{:.5f}".format(x), f(a), f(b), f(x), abs(f(x))])
+        tabelaResultados.add_row(
+            [i, a, b, "{:.5f}".format(x), f(a), f(b), f(x), abs(f(x))])
 
         if abs(f(x)) < precisao:
             raizConvergente = x

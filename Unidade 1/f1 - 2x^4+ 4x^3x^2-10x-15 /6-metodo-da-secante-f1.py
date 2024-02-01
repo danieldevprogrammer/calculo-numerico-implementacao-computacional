@@ -5,13 +5,12 @@ import time
 # Variável para determinar qual será a função.
 nomeDaFuncao = '2x^4 + 4x^3 + 3x^2 - 10x - 15'
 print(f'Método da Secante da função f(x) = {nomeDaFuncao}')
-
-# Valor inicial do intervalo:
+# Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
 b = 3
-# A precisão da raiz.
-precisao = 0.0000000001
+# A precisão da raíz.
+precisao = 1e-10
 # Número máximo de interações
 maxIteracoes = 500
 

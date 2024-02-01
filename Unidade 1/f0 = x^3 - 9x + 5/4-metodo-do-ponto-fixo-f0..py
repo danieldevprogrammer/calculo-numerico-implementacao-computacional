@@ -5,13 +5,12 @@ import time
 # Variável para determinar qual vai ser a função.
 nomeDaFuncao = 'x^3 - 9x + 5'
 print(f'Método do Ponto Fixo da função f(x) = {nomeDaFuncao}')
-
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
 b = 1
 # A precisão da raíz.
-precisao = 0.01
+precisao = 1e-2
 # Número máximo de interações
 maxIteracoes = 500
 
@@ -51,6 +50,13 @@ def pontoFixo(a, b, x, precisao, maxIteracoes):
     for numIteracoes in range(1, maxIteracoes + 1):
         xAnterior = x
         x = fi(x)
+
+        # Verificar se a função está saindo de controle
+        if abs(x) > 1e10:
+            print(
+                'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\n')
+            break
+
         tabelaResultados.add_row(
             [numIteracoes, a, b, "{:.5f}".format(x), f(x), abs(f(x))])
 

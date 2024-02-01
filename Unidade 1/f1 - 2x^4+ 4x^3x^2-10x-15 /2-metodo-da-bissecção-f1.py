@@ -6,11 +6,11 @@ import time
 nomeDaFuncao = '2x^4 + 4x^3 + 3x^2 - 10x - 15'
 print(f'Método da Bissecção da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
-a = int(0)
+a = 0
 # Valor final do intervalo:
-b = int(3)
+b = 3
 # A precisão da raíz.
-precisao = float(0.0000000001)
+precisao = 1e-10
 # Equação inicial para descobrir o valor de x:
 x = (a + b) / 2
 # Número máximo de interações

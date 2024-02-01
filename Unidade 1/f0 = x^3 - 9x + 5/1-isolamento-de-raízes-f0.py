@@ -8,18 +8,19 @@ import time
 nomeDaFuncao = 'x^3 - 9x + 5'
 print(f'Isolamento das raízes da função f(x) = {nomeDaFuncao}')
 # a = Início do intervalo.
-a = int(-4)
+a = -4
 # b = Final do intervalo.
-b = int(5)
+b = 5
 # h = Amplitude do intervalo.
-amplitude = float(1)
+amplitude = 1
 print(f'I=[{a},{b}] e Amplitude={amplitude}.\n')
 
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
+
 # Função para isolamento das Raízes:
-def f(x):  
+def f(x):
     return x**3 - 9 * x + 5
 
 
@@ -49,7 +50,8 @@ x = np.linspace(a, b, 100)
 y = f(x)
 
 plt.plot(x, y)
-plt.scatter(valoresDeX, valoresDeY, color='red', label='Pontos para isolamento de raízes')
+plt.scatter(valoresDeX, valoresDeY, color='red',
+            label='Pontos para isolamento de raízes')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title(f'Função f(x) = {nomeDaFuncao} no I=[{a}, {b}] e h={amplitude}')
@@ -57,4 +59,3 @@ plt.legend()
 plt.grid(True)
 # Exibir o gráfico na tela
 plt.show()
-
