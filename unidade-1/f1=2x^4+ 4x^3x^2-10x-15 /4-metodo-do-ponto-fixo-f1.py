@@ -4,7 +4,7 @@ import time
 
 # variável para determinar qual vai ser a função.
 nomeDaFuncao = '2x^4 + 4x^3 + 3x^2 - 10x - 15'
-print(f'Método do Ponto Fixo da função f(x) = {nomeDaFuncao}')
+print(f'\nMétodo do Ponto Fixo da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:

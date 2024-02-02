@@ -6,7 +6,7 @@ import time
 
 # Variável para determinar qual vai ser a função.
 nomeDaFuncao = 'x^3 - 9x + 5'
-print(f'Isolamento das raízes da função f(x) = {nomeDaFuncao}')
+print(f'\nIsolamento das raízes da função f(x) = {nomeDaFuncao}')
 # a = Início do intervalo.
 a = -4
 # b = Final do intervalo.

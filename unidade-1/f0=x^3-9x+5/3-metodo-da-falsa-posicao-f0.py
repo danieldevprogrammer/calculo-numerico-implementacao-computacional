@@ -4,7 +4,7 @@ import time
 
 # Variável para determinar qual vai ser a função.
 nomeDaFuncao = 'x^3 - 9x + 5'
-print(f'Método da Falsa Posição da função f(x) = {nomeDaFuncao}')
+print(f'\nMétodo da Falsa Posição da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:

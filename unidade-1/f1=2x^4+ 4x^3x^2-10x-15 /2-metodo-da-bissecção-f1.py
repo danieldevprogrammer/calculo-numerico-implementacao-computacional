@@ -4,7 +4,7 @@ import time
 
 # variável para determinar qual vai ser a função.
 nomeDaFuncao = '2x^4 + 4x^3 + 3x^2 - 10x - 15'
-print(f'Método da Bissecção da função f(x) = {nomeDaFuncao}')
+print(f'\nMétodo da Bissecção da função f(x) = {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:

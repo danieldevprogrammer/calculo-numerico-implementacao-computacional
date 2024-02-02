@@ -1,26 +1,33 @@
 import os
 import subprocess
+from colorama import Fore, Style, init
+
+# Inicializando colorama (chamada uma vez no início do seu script)
+init()
 
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-print('\033[1;34mCálculo Numérico - Implementação Computacional\033[m')
-print('\033[4mAluno: Daniel Vitor da Silva\033[m')
+print(Fore.CYAN + Style.BRIGHT +
+      'Cálculo Numérico - Implementação Computacional' + Style.RESET_ALL)
+
+print(Style.BRIGHT + 'Aluno: \033[4mDaniel Vitor da Silva' + Style.RESET_ALL)
 
 while True:
     # Escolher a unidade
-    print('Escolha a unidade desejada de Cálculo Numérico:')
-    print('1. Primeira unidade')
-    print('2. Segunda unidade')
-    print('3. Terceira unidade')
-    print('0. Sair')
+    print('\nEscolha a unidade desejada de Cálculo Numérico:')
+    print(Fore.GREEN + '1. Primeira unidade' + Style.RESET_ALL)
+    print(Fore.GREEN + '2. Segunda unidade - Aguarde' + Style.RESET_ALL)
+    print(Fore.GREEN + '3. Terceira unidade - Aguarde' + Style.RESET_ALL)
+    print(Fore.RED + '0. Sair' + Style.RESET_ALL)
 
     try:
-        unidade = int(input('Digite o número da unidade ou 0 para sair: '))
+        unidade = int(input(
+            'Digite o número da unidade ou 0 para sair: '))
     except ValueError:
-        print('Por favor, insira um número válido.\n')
+        print(Fore.RED + 'Por favor, insira um número válido.\n' + Style.RESET_ALL)
         continue
 
     if unidade == 0:
@@ -30,18 +37,21 @@ while True:
         while True:
             # Escolher a função
             print('\nEscolha a função que deseja executar:')
-            print('1. f0 = x^3 - 9x + 5')
-            print('2. f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15')
-            print('3. f2 = x^5 - 2x^4 - 9x^3 + 22x^2 + 4x -24')
-            print('4. f3 = 5x^3 + x^2 - e^(1-2x) + cos(x) + 20')
-            print('5. f4 = sen(x)x + 4')
-            print('0. Voltar para o menu anterior')
+            print(Fore.GREEN + '1. f0 = x^3 - 9x + 5' + Style.RESET_ALL)
+            print(Fore.GREEN + '2. f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '3. f2 = x^5 - 2x^4 - 9x^3 + 22x^2 + 4x -24' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '4. f3 = 5x^3 + x^2 - e^(1-2x) + cos(x) + 20' + Style.RESET_ALL)
+            print(Fore.GREEN + '5. f4 = sen(x)x + 4' + Style.RESET_ALL)
+            print(Fore.YELLOW + '0. Voltar para o menu anterior' + Style.RESET_ALL)
 
             try:
                 escolhaDaFuncao = int(
                     input('Digite o número da função ou 0 para voltar: '))
             except ValueError:
-                print('Por favor, insira um número válido.')
+                print(Fore.RED + 'Por favor, insira um número válido.' +
+                      Style.RESET_ALL)
                 continue
 
             if escolhaDaFuncao == 0:
@@ -52,19 +62,22 @@ while True:
 
                 while True:
                     print('Escolha o método que deseja executar:')
-                    print('1. Isolamento de Raízes')
-                    print('2. Método da Bissecção')
-                    print('3. Método da Falsa Posição')
-                    print('4. Método do Ponto Fixo')
-                    print('5. Método de Newton')
-                    print('6. Método da Secante')
-                    print('0. Voltar para o menu anterior')
+                    print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
+                    print(Fore.GREEN + '2. Método da Bissecção')
+                    print(Fore.GREEN + '3. Método da Falsa Posição' +
+                          Style.RESET_ALL)
+                    print(Fore.GREEN + '4. Método do Ponto Fixo' + Style.RESET_ALL)
+                    print(Fore.GREEN + '5. Método de Newton')
+                    print(Fore.GREEN + '6. Método da Secante')
+                    print(Fore.YELLOW +
+                          '0. Voltar para o menu anterior' + Style.RESET_ALL)
 
                     try:
                         escolhaDoMetodo = int(
                             input('Digite o número do método que deseja executar ou 0 para voltar: '))
                     except ValueError:
-                        print('Por favor, insira um número válido.')
+                        print(
+                            Fore.RED + 'Por favor, insira um número válido.' + Style.RESET_ALL)
                         continue
 
                     script_directory = os.path.dirname(
@@ -116,12 +129,12 @@ while True:
                         break  # Voltar para o menu anterior
 
                     else:
-                        print('Escolha inválida!\n')
+                        print(Fore.RED + 'Escolha inválida!\n' + Style.RESET_ALL)
             else:
-                print('Função inválida!\n')
+                print(Fore.RED + 'Função inválida!\n' + Style.RESET_ALL)
 
     else:
-        print('Escolha de unidade inválida!\n')
+        print(Fore.RED + 'Escolha de unidade inválida!\n' + Style.RESET_ALL)
 
 # Limpar o console
 clear()
