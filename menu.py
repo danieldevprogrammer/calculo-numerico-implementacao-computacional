@@ -50,7 +50,7 @@ while True:
                 escolhaDaFuncao = int(
                     input('Digite o número da função ou 0 para voltar: '))
             except ValueError:
-                print(Fore.RED + 'Por favor, insira um número válido.' +
+                print(Fore.RED + 'Por favor, insira um número válido.\n' +
                       Style.RESET_ALL)
                 continue
 
@@ -58,7 +58,7 @@ while True:
                 break  # Voltar para o menu anterior
 
             if escolhaDaFuncao == 1:
-                print('\nA função Escolhida foi: f1 = x^3 - 9x + 5')
+                print('\nA função Escolhida foi: f0 = x^3 - 9x + 5')
 
                 while True:
                     print('Escolha o método que deseja executar:')
@@ -77,7 +77,7 @@ while True:
                             input('Digite o número do método que deseja executar ou 0 para voltar: '))
                     except ValueError:
                         print(
-                            Fore.RED + 'Por favor, insira um número válido.' + Style.RESET_ALL)
+                            Fore.RED + 'Por favor, insira um número válido.\n' + Style.RESET_ALL)
                         continue
 
                     script_directory = os.path.dirname(
