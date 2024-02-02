@@ -19,8 +19,10 @@ while True:
     # Escolher a unidade
     print('\nEscolha a unidade desejada de Cálculo Numérico:')
     print(Fore.GREEN + '1. Primeira unidade' + Style.RESET_ALL)
-    print(Fore.GREEN + '2. Segunda unidade - Aguarde' + Style.RESET_ALL)
-    print(Fore.GREEN + '3. Terceira unidade - Aguarde' + Style.RESET_ALL)
+    print(Style.DIM +
+          '2. Segunda unidade - Em andamento...' + Style.RESET_ALL)
+    print(Style.DIM +
+          '3. Terceira unidade - Em andamento...' + Style.RESET_ALL)
     print(Fore.RED + '0. Sair' + Style.RESET_ALL)
 
     try:
