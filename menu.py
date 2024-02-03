@@ -132,8 +132,12 @@ while True:
 
                     else:
                         print(Fore.RED + 'Escolha inválida!\n' + Style.RESET_ALL)
+
+            # elif escolhaDa Funcao == 2:
+
             else:
                 print(Fore.RED + 'Função inválida!\n' + Style.RESET_ALL)
+    # elif unidade == 1:
 
     else:
         print(Fore.RED + 'Escolha de unidade inválida!\n' + Style.RESET_ALL)

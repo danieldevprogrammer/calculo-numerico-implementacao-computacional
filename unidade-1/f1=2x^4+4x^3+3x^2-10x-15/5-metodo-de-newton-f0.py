@@ -1,11 +1,11 @@
-# Implementação do Método do Ponto Fixo:
+# Implementação do Método de Newton:
 from prettytable import PrettyTable
 import time
 import os
 from datetime import datetime
 
 # Variável para determinar qual vai ser a função.
-nomeDaFuncao = 'f(x)=x^3-9x+5'
+nomeDaFuncao = 'f(x)=x^3 - 9x + 5'
 
 diretorio_resultados = "unidade-1/f0=x^3-9x+5/resultados-em-txt-e-grafico-f0"
 
@@ -18,9 +18,9 @@ data_e_hora_atual = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 
 # Definir o caminho completo para os arquivos
 caminho_tabela = os.path.join(
-    diretorio_resultados, f'4-metodo-do-ponto-fixo-{nomeDaFuncao}-{data_e_hora_atual}.txt')
+    diretorio_resultados, f'5-metodo-de-newton-{nomeDaFuncao}-{data_e_hora_atual}.txt')
 
-print(f'\nMétodo do Ponto Fixo da função {nomeDaFuncao}')
+print(f'\nMétodo de Newton da função {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
@@ -29,69 +29,71 @@ b = 1
 precisao = 1e-2
 # Número máximo de interações
 maxIteracoes = 500
+# Palpite inicial para descobrir o valor de x:
+x0 = (a + b) / 2
 
-# Inicialização de x0, é uma opção começar com x no meio do intervalo, mas não é obrigatório.
-x = (a + b) / 2
-
-print(f'I=[{a},{b}], Precisão={precisao}, X0={x} e Número Máximo de Iterações={maxIteracoes}.\n')
+print(f'I=[{a},{b}], Precisão={precisao}, X0={x0} e Número Máximo de Iterações={maxIteracoes}.\n')
 
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
-# Definindo a função f(x):
 
-
+# Definindo a função f(x)
 def f(x):
-    return x**3 - 9*x + 5
-
-# Definindo a função fi
+    return x**3 - 9 * x + 5
 
 
-def fi(x):
-    return (x**3 + 5) / 9
+# Definindo a função da derivada numérica de f(x)
+def derivadaNumericaDeF(x, h=0.0001):
+    # h=0.0001, é um valor muito próximo de zero, para que não ocarra um erro de indeterminação na função e assim pode calcular a derivada númerica
+    return (f(x + h) - f(x)) / h
 
 
-# Definindo a função que encontrará a raiz por meio do metodo do Ponto Fixo:
-def pontoFixo(a, b, x, precisao, maxIteracoes):
+# Definindo a função que encontrará a raiz por meio do metodo de Newton:
+def Newton(x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
-    tabelaResultados.field_names = [
-        'Iteração', 'a', 'b', 'x', 'f(x)', '|f(x)|']
+    tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
     tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
 
     raizConvergente = None
 
-    # Acrescentando na tabela uma linha a mais para aparecer a iteração 0
-    tabelaResultados.add_row([0, a, b, "{:.5f}".format(x), f(x), abs(f(x))])
+    # Inicializa o valor de x com o palpite inicial x0
+    x = x0
 
-    for numIteracoes in range(1, maxIteracoes + 1):
-        xAnterior = x
-        x = fi(x)
+    # Loop para as iterações
+    for numIteracoes in range(maxIteracoes):
+        valorDef = f(x)
 
-        # Verificar se a função está saindo de controle
-        if abs(x) > 1e10:
-            print(
-                'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\n')
+        # Adiciona a iteração atual à tabela
+        tabelaResultados.add_row(
+            [numIteracoes, x, valorDef, abs(valorDef)])
 
-            # Adicionando a mensagem ao arquivo de texto
-            with open(caminho_tabela, 'w') as file:
-                file.write(
-                    'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\nO erro aconteceu provavelmente por causa da má definição da função Fi.\n')
+        # Condição para quando a raiz convergir parar o loop
+        if abs(valorDef) < precisao:
+            raizConvergente = x
             break
 
-        tabelaResultados.add_row(
-            [numIteracoes, a, b, "{:.5f}".format(x), f(x), abs(f(x))])
+        # Calculando a derivada de numérica de f(x)
+        derivadaNumerica = derivadaNumericaDeF(x)
+        # Verificando se a derivade numérica é igual a 0, para evitar erros.
+        if derivadaNumerica == 0:
+            print("Derivada é zero. Escolha outro palpite inicial.")
+            return None
 
-        if abs(x - xAnterior) < precisao:
-            raizConvergente = x
-            break  # Sai do loop quando a precisão é atingida
+        x = x - (valorDef / derivadaNumerica)
+
+        if abs(valorDef) < precisao:
+            raizConvergente = "{:.5f}".format(x)
+            break
+
     else:
-        print('\nO número máximo de iterações foi atingido.')
+        print("\nO número máximo de iterações foi atingido.")
 
     return tabelaResultados, raizConvergente
 
 
-# Chamando a função do Método do Ponto Fixo
-tabelaResultados, raizConvergente = pontoFixo(a, b, x, precisao, maxIteracoes)
+# Chamando a função do Método de Newton
+tabelaResultados, raizConvergente = Newton(x0, precisao, maxIteracoes)
 
 # Medindo o tempo de fim do cálculo
 fimTempo = time.time()
@@ -100,10 +102,10 @@ fimTempo = time.time()
 print(tabelaResultados)
 
 # Salvando a tabela em um arquivo txt com informações adicionais
-with open(caminho_tabela, 'a') as file:
-    file.write(f'Método do Ponto Fixo da função {nomeDaFuncao}\n')
+with open(caminho_tabela, 'w') as file:
+    file.write(f'Método de Newton da função {nomeDaFuncao}\n')
     file.write(
-        f'I=[{a},{b}], Precisão={precisao}, X0={x} e Número Máximo de Iterações={maxIteracoes}.\n')
+        f'I=[{a},{b}], Precisão={precisao}, X0={x0} e Número Máximo de Iterações={maxIteracoes}.\n')
     file.write(str(tabelaResultados))
 
 # Verificando se a raiz convergente foi encontrada:
