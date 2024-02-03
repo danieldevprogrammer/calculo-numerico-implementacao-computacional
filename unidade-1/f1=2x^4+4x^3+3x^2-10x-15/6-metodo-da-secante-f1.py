@@ -24,9 +24,9 @@ print(f'\nMétodo da Secante da função {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
-b = 1
+b = 3
 # A precisão da raíz.
-precisao = 1e-2
+precisao = 1e-10
 # Número máximo de interações
 maxIteracoes = 500
 
@@ -37,7 +37,7 @@ inicioTempo = time.time()
 
 
 def f(x):  # Definindo a função f(x)
-    return x**3 - 9 * x + 5
+    return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
 
 # Palpite inicial para descobrir o valor de x:
@@ -54,12 +54,12 @@ def secante(f, x0, x1, precisao, maxInteracoes):
     # Inicializando a tabela de resultados
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     for numIteracoes in range(maxInteracoes):
         # Adiciona a linha na tabela para a iteração atual
         tabelaResultados.add_row(
-            [numIteracoes, f'{x1:.5f}', f'{f(x1):.5f}', f'{abs(f(x1)):.5f}'])
+            [numIteracoes, f'{x1:.15f}', f'{f(x1):.15f}', f'{abs(f(x1)):.15f}'])
 
         # Verifica se a diferença entre as aproximações é menor que a tolerância
         if abs(x1 - x0) < precisao:
@@ -92,7 +92,7 @@ with open(caminho_tabela, 'w') as file:
 
 # Verificando se a raiz convergente foi encontrada:
 if raizConvergente is not None:
-    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
+    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}')
 else:
     print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
 
@@ -100,7 +100,7 @@ else:
 with open(caminho_tabela, 'a') as file:
     if raizConvergente is not None:
         file.write(
-            f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}\n')
+            f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}\n')
     else:
         file.write(
             '\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.\n')
