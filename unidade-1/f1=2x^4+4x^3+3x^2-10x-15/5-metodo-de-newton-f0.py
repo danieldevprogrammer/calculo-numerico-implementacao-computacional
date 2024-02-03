@@ -5,9 +5,9 @@ import os
 from datetime import datetime
 
 # Variável para determinar qual vai ser a função.
-nomeDaFuncao = 'f(x)=x^3 - 9x + 5'
+nomeDaFuncao = 'f(x)=2x^4+4x^3+3x^2-10x-15'
 
-diretorio_resultados = "unidade-1/f0=x^3-9x+5/resultados-em-txt-e-grafico-f0"
+diretorio_resultados = "unidade-1/f1=2x^4+4x^3+3x^2-10x-15/resultados-em-txt-e-grafico-f1"
 
 # Criar a estrutura de diretório, se não existir
 if not os.path.exists(diretorio_resultados):
@@ -24,9 +24,9 @@ print(f'\nMétodo de Newton da função {nomeDaFuncao}')
 # Valor ínicial do intervalo:
 a = 0
 # Valor final do intervalo:
-b = 1
+b = 3
 # A precisão da raíz.
-precisao = 1e-2
+precisao = 1e-10
 # Número máximo de interações
 maxIteracoes = 500
 # Palpite inicial para descobrir o valor de x:
@@ -40,7 +40,7 @@ inicioTempo = time.time()
 
 # Definindo a função f(x)
 def f(x):
-    return x**3 - 9 * x + 5
+    return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
 
 # Definindo a função da derivada numérica de f(x)
@@ -53,7 +53,7 @@ def derivadaNumericaDeF(x, h=0.0001):
 def Newton(x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     raizConvergente = None
 
@@ -83,7 +83,7 @@ def Newton(x, precisao, maxIteracoes):
         x = x - (valorDef / derivadaNumerica)
 
         if abs(valorDef) < precisao:
-            raizConvergente = "{:.5f}".format(x)
+            raizConvergente = "{:.15f}".format(x)
             break
 
     else:
@@ -110,7 +110,7 @@ with open(caminho_tabela, 'w') as file:
 
 # Verificando se a raiz convergente foi encontrada:
 if raizConvergente is not None:
-    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
+    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}')
 else:
     print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
 
@@ -118,7 +118,7 @@ else:
 with open(caminho_tabela, 'a') as file:
     if raizConvergente is not None:
         file.write(
-            f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}\n')
+            f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}\n')
     else:
         file.write(
             '\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.\n')

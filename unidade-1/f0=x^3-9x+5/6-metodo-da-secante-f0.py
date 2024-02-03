@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 # Variável para determinar qual vai ser a função.
-nomeDaFuncao = 'f(x)=x^3 - 9x + 5'
+nomeDaFuncao = 'f(x)=x^3-9x+5'
 
 diretorio_resultados = "unidade-1/f0=x^3-9x+5/resultados-em-txt-e-grafico-f0"
 

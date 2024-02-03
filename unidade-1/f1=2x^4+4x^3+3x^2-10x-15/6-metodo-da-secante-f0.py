@@ -5,9 +5,9 @@ import os
 from datetime import datetime
 
 # Variável para determinar qual vai ser a função.
-nomeDaFuncao = 'f(x)=x^3 - 9x + 5'
+nomeDaFuncao = 'f(x)=2x^4+4x^3+3x^2-10x-15'
 
-diretorio_resultados = "unidade-1/f0=x^3-9x+5/resultados-em-txt-e-grafico-f0"
+diretorio_resultados = "unidade-1/f1=2x^4+4x^3+3x^2-10x-15/resultados-em-txt-e-grafico-f1"
 
 # Criar a estrutura de diretório, se não existir
 if not os.path.exists(diretorio_resultados):
