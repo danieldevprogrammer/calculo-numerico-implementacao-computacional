@@ -61,9 +61,9 @@ def secante(f, x0, x1, precisao, maxInteracoes):
         tabelaResultados.add_row(
             [numIteracoes, f'{x1:.15f}', f'{f(x1):.15f}', f'{abs(f(x1)):.15f}'])
 
-        # Verifica se a diferença entre as aproximações é menor que a tolerância
-        if abs(x1 - x0) < precisao:
-            return x1, tabelaResultados  # Retorna a raiz e a tabela de resultados
+        # # Verifica se a diferença entre as aproximações é menor que a tolerância
+        # if abs(x1 - x0) < precisao:
+        #     return x1, tabelaResultados  # Retorna a raiz e a tabela de resultados
 
         # Calcula a nova aproximação usando a fórmula da secante
         xAproximacao = x1 - (fx1 * (x1 - x0)) / (fx1 - fx0)
@@ -71,6 +71,10 @@ def secante(f, x0, x1, precisao, maxInteracoes):
         # Atualiza os valores para a próxima iteração
         x0, x1 = x1, xAproximacao
         fx0, fx1 = fx1, f(xAproximacao)
+
+        # Verifica se a diferença entre as aproximações é menor que a tolerância
+        if abs(x1 - x0) < precisao:
+            return x1, tabelaResultados  # Retorna a raiz e a tabela de resultados
 
     return None, tabelaResultados  # Retorna None se não convergir
 
