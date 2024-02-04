@@ -37,8 +37,9 @@ while True:
 
     if unidade == 1:
         while True:
+            print(Fore.GREEN + '\nPrimeira Unidade' + Style.RESET_ALL)
             # Escolher a função
-            print('\nEscolha a função que deseja executar:')
+            print('Escolha a função que deseja executar:')
             print(Fore.GREEN + '1. f0 = x^3 - 9x + 5' + Style.RESET_ALL)
             print(Fore.GREEN + '2. f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15' + Style.RESET_ALL)
             print(
@@ -61,9 +62,9 @@ while True:
 
             # f0 = x^3 - 9x + 5
             if escolhaDaFuncao == 1:
-                print('\nA função Escolhida foi: f0 = x^3 - 9x + 5')
-
                 while True:
+                    print(
+                        Fore.GREEN + '\nA função Escolhida foi: f0 = x^3 - 9x + 5' + Style.RESET_ALL)
                     print('Escolha o método que deseja executar:')
                     print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
                     print(Fore.GREEN + '2. Método da Bissecção')
@@ -136,9 +137,9 @@ while True:
 
             # f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15
             if escolhaDaFuncao == 2:
-                print('\nA função Escolhida foi: f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15')
-
                 while True:
+                    print(Fore.GREEN +
+                          '\nA função Escolhida foi: f1 = 2x^4 + 4x^3 + 3x^2 - 10x - 15' + Style.RESET_ALL)
                     print('Escolha o método que deseja executar:')
                     print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
                     print(Fore.GREEN + '2. Método da Bissecção')
@@ -211,10 +212,9 @@ while True:
 
             # f2 = x^5 - 2x^4 - 9x^3 + 22x^2 + 4x - 24
             if escolhaDaFuncao == 3:
-                print(
-                    '\nA função Escolhida foi: f2 = x^5 - 2x^4 - 9x^3 + 22x^2 + 4x - 24')
-
                 while True:
+                    print(Fore.GREEN +
+                          '\nA função Escolhida foi: f2 = x^5 - 2x^4 - 9x^3 + 22x^2 + 4x - 24' + Style.RESET_ALL)
                     print('Escolha o método que deseja executar:')
                     print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
                     print(Fore.GREEN + '2. Método da Bissecção')
@@ -287,10 +287,9 @@ while True:
 
             # f3 = 5x^3 + x^2 - e^(1-2x) + cos(x) + 20
             if escolhaDaFuncao == 4:
-                print(
-                    '\nA função Escolhida foi: f3 = 5x^3 + x^2 - e^(1-2x) + cos(x) + 20')
-
                 while True:
+                    print(Fore.GREEN +
+                          '\nA função Escolhida foi: f3 = 5x^3 + x^2 - e^(1-2x) + cos(x) + 20' + Style.RESET_ALL)
                     print('Escolha o método que deseja executar:')
                     print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
                     print(Fore.GREEN + '2. Método da Bissecção')
@@ -362,10 +361,9 @@ while True:
 
             # f4 = sen(x)x + 4
             if escolhaDaFuncao == 5:
-                print(
-                    '\nA função Escolhida foi:  f 4=sen(x ) x+4')
-
                 while True:
+                    print(Fore.GREEN +
+                          '\nA função Escolhida foi:  f 4=sen(x ) x+4' + Style.RESET_ALL)
                     print('Escolha o método que deseja executar:')
                     print(Fore.GREEN + '1. Isolamento de Raízes' + Style.RESET_ALL)
                     print(Fore.GREEN + '2. Método da Bissecção')
