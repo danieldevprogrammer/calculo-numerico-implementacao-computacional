@@ -93,7 +93,7 @@ with open(caminho_tabela, 'w') as file:
 
 # Verificando se a raiz convergente foi encontrada:
 if raizConvergente is not None:
-    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}')
+    print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
 else:
     print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
 
@@ -101,7 +101,7 @@ else:
 with open(caminho_tabela, 'a') as file:
     if raizConvergente is not None:
         file.write(
-            f'\nRaiz convergente encontrada foi: {raizConvergente:.15f}\n')
+            f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}\n')
     else:
         file.write(
             '\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.\n')
