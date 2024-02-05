@@ -42,21 +42,30 @@ def f(x):
     return x**5 - 2*x**4 - 9*x**3 + 22*x**2 + 4*x - 24
 
 
-# Valores de x:
-valoresDeX = np.arange(a, b + amplitude, amplitude)
+# Função para isolamento das Raízes:
+def isolamentoRaizes(a, b, amplitude, f):
+    # Valores de x:
+    valoresDeX = np.arange(a, b + amplitude, amplitude)
 
-# Valores de y:
-valoresDeY = [f(x) for x in valoresDeX]
+    # Valores de y:
+    valoresDeY = [f(x) for x in valoresDeX]
 
-# Criando a tabela com PrettyTable
-tabelaResultados = PrettyTable()
-tabelaResultados.field_names = ['x', 'f(x)']
+    # Criando a tabela com PrettyTable
+    tabelaResultados = PrettyTable()
+    tabelaResultados.field_names = ['x', 'f(x)']
 
-for x, y in zip(valoresDeX, valoresDeY):
-    tabelaResultados.add_row([x, y])
+    for x, y in zip(valoresDeX, valoresDeY):
+        tabelaResultados.add_row([x, y])
 
-# Imprimir a tabela no console
-print(tabelaResultados)
+    # Imprimir a tabela no console
+    print(tabelaResultados)
+
+    # Retornar a tabela para ser usada fora da função
+    return tabelaResultados, valoresDeX, valoresDeY
+
+
+# Chamar a função e salvar a tabela em um arquivo txt com informações adicionais
+tabelaResultados, valoresDeX, valoresDeY = isolamentoRaizes(a, b, amplitude, f)
 
 # Salvando a tabela em um arquivo txt com informações adicionais
 with open(caminho_tabela, 'w') as file:
