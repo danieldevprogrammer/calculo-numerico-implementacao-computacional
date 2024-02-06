@@ -27,7 +27,7 @@ a = 0
 b = 1
 # A precisão da raíz.
 precisao = 1e-2
-# Número máximo de interações
+# Número máximo de iterações
 maxIteracoes = 500
 # Palpite inicial para descobrir o valor de x:
 x0 = (a + b) / 2

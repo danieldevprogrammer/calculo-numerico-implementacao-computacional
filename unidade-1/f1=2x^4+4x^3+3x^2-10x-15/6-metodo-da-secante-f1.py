@@ -27,7 +27,7 @@ a = 0
 b = 3
 # A precisão da raíz.
 precisao = 1e-10
-# Número máximo de interações
+# Número máximo de iterações
 maxIteracoes = 500
 
 print(f'I=[{a},{b}], Precisão={precisao} e Número Máximo de Iterações={maxIteracoes}.\n')

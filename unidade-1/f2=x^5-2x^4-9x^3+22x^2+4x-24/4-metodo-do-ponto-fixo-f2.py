@@ -27,7 +27,7 @@ a = 0
 b = 5
 # A precisão da raíz.
 precisao = 1e-10
-# Número máximo de interações
+# Número máximo de iterações
 maxIteracoes = 500
 
 # Inicialização de x0, é uma opção começar com x no meio do intervalo, mas não é obrigatório.
