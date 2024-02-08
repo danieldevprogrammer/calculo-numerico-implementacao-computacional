@@ -38,30 +38,28 @@ print(f'I=[{a},{b}], Precisão={precisao}, X0={x} e Número Máximo de Iteraçõ
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
+
 # Definindo a função f(x):
-
-
 def f(x):
     return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
+
 # Definindo a função fi
-
-
 def fi(x):
     return (2 * x**4 + 4 * x**3 + 3 * x**2 - 15) / 10
 
 
-# Definindo a função que encontrará a raiz por meio do metodo do Ponto Fixo:
+# Função que encontrará a raiz por meio do metodo do Ponto Fixo:
 def pontoFixo(a, b, x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [
         'Iteração', 'a', 'b', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
+    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
 
     raizConvergente = None
 
     # Acrescentando na tabela uma linha a mais para aparecer a iteração 0
-    tabelaResultados.add_row([0, a, b, "{:.15f}".format(x), f(x), abs(f(x))])
+    tabelaResultados.add_row([0, a, b, "{:.5f}".format(x), f(x), abs(f(x))])
 
     for numIteracoes in range(1, maxIteracoes + 1):
         xAnterior = x
@@ -70,7 +68,7 @@ def pontoFixo(a, b, x, precisao, maxIteracoes):
         # Verificar se a função está saindo de controle
         if abs(x) > 1e10:
             print(
-                'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\nO erro aconteceu provavelmente por causa da má definição da função Fi.\n')
+                'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\n')
 
             # Adicionando a mensagem ao arquivo de texto
             with open(caminho_tabela, 'w') as file:

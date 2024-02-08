@@ -42,7 +42,7 @@ def f(x):
     return 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
 
 
-# Definindo a função que encontrará a raiz por meio do metodo da Falsa Posição:
+# Função que encontrará a raiz por meio do metodo da Falsa Posição:
 def falsaPosicao(a, b, precisao, maxIteracoes):
     if f(a) * f(b) >= 0:
         raise ValueError(
@@ -52,7 +52,7 @@ def falsaPosicao(a, b, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [
         'Iteração', 'a', 'b', 'x', 'f(a)', 'f(b)', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
+    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
 
     # Inicializando raizConvergente como None
     raizConvergente = None

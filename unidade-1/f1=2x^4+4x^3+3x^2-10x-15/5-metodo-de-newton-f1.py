@@ -49,11 +49,11 @@ def derivadaNumericaDeF(x, h=0.0001):
     return (f(x + h) - f(x)) / h
 
 
-# Definindo a função que encontrará a raiz por meio do metodo de Newton:
+# Função que encontrará a raiz por meio do metodo de Newton:
 def Newton(x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
+    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
 
     raizConvergente = None
 
@@ -83,7 +83,7 @@ def Newton(x, precisao, maxIteracoes):
         x = x - (valorDef / derivadaNumerica)
 
         if abs(valorDef) < precisao:
-            raizConvergente = "{:.15f}".format(x)
+            raizConvergente = "{:.5f}".format(x)
             break
 
     else:

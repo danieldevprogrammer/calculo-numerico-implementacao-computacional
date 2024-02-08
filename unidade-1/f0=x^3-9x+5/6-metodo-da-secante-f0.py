@@ -45,7 +45,7 @@ x0 = a
 x1 = b
 
 
-# Definindo a função que encontrará a raiz por meio do metodo da Secante:
+# Função que encontrará a raiz por meio do metodo da Secante:
 def secante(f, x0, x1, precisao, maxInteracoes):
     # Realiza as primeiras iterações manualmente
     fx0 = f(x0)

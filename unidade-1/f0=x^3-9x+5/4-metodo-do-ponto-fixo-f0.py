@@ -38,20 +38,18 @@ print(f'I=[{a},{b}], Precisão={precisao}, X0={x} e Número Máximo de Iteraçõ
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
+
 # Definindo a função f(x):
-
-
 def f(x):
     return x**3 - 9*x + 5
 
+
 # Definindo a função fi
-
-
 def fi(x):
     return (x**3 + 5) / 9
 
 
-# Definindo a função que encontrará a raiz por meio do metodo do Ponto Fixo:
+# Função que encontrará a raiz por meio do metodo do Ponto Fixo:
 def pontoFixo(a, b, x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [

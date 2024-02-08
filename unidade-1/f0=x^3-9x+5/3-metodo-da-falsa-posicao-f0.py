@@ -36,15 +36,13 @@ print(f'I=[{a},{b}], Precisão={precisao} e Número Máximo de Iterações={maxI
 # Medindo o tempo de início do cálculo
 inicioTempo = time.time()
 
+
 # Definindo a função f(x):
-
-
 def f(x):
     return x**3 - 9 * x + 5
 
-# Definindo a função que encontrará a raiz por meio do metodo da Falsa Posição:
 
-
+# Função que encontrará a raiz por meio do metodo da Falsa Posição:
 def falsaPosicao(a, b, precisao, maxIteracoes):
     if f(a) * f(b) >= 0:
         raise ValueError(
