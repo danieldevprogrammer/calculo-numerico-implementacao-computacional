@@ -66,6 +66,7 @@ Este projeto foi desenvolvido em Python 3 e requer as seguintes bibliotecas para
 - [prettytable](https://pypi.org/project/prettytable/): Utilizada para formatar dados tabulares de forma legível.
 - [numpy](https://numpy.org/): Fundamental para operações matriciais e cálculos numéricos.
 - [matplotlib](https://matplotlib.org/): Usada para criar gráficos e visualizações dos dados.
+- [colorama](https://pypi.org/project/colorama/): Usada para adicionar cores ao texto impresso no terminal.
 
 ### Como Instalar as Bibliotecas:
 
