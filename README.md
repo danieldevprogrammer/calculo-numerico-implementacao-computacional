@@ -8,7 +8,8 @@ Cálculo Numérico é uma área da matemática que lida com a formulação e imp
 
 ## Unidades e Técnicas Implementadas:
 
-### Unidade 1: Zeros de Funções
+### Unidade 1: 
+### Zeros de Funções
 - Isolamento de Raízes
 - Método da Bissecção
 - Método da Falsa Posição
@@ -16,7 +17,8 @@ Cálculo Numérico é uma área da matemática que lida com a formulação e imp
 - Método de Newton
 - Método da Secante
 
-### Unidade 2: Sistemas de Equações Lineares
+### Unidade 2: 
+### Sistemas de Equações Lineares
 - Função de Retrosubstituição
 - Método de Eliminação de Gauss
 - Método de Fatoração LU
@@ -24,7 +26,8 @@ Cálculo Numérico é uma área da matemática que lida com a formulação e imp
 - Método de Gauss-Seidel
 - Interpolação Polinomial
 
-### Unidade 3: Método dos Mínimos Quadrados
+### Unidade 3: 
+### Método dos Mínimos Quadrados
 - Linear
 - Logarítmico
 - Potência
