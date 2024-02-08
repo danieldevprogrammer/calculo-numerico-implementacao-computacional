@@ -52,7 +52,7 @@ def falsaPosicao(a, b, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [
         'Iteração', 'a', 'b', 'x', 'f(a)', 'f(b)', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     # Inicializando raizConvergente como None
     raizConvergente = None
@@ -60,7 +60,7 @@ def falsaPosicao(a, b, precisao, maxIteracoes):
     for i in range(maxIteracoes):
         x = ((a * f(b)) - (b * f(a))) / (f(b) - f(a))
         tabelaResultados.add_row(
-            [i, a, b, "{:.5f}".format(x), f(a), f(b), f(x), abs(f(x))])
+            [i, a, b, "{:.15f}".format(x), f(a), f(b), f(x), abs(f(x))])
 
         if abs(f(x)) < precisao:
             raizConvergente = x

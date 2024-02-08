@@ -54,12 +54,12 @@ def pontoFixo(a, b, x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [
         'Iteração', 'a', 'b', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     raizConvergente = None
 
     # Acrescentando na tabela uma linha a mais para aparecer a iteração 0
-    tabelaResultados.add_row([0, a, b, "{:.5f}".format(x), f(x), abs(f(x))])
+    tabelaResultados.add_row([0, a, b, "{:.15f}".format(x), f(x), abs(f(x))])
 
     for numIteracoes in range(1, maxIteracoes + 1):
         xAnterior = x

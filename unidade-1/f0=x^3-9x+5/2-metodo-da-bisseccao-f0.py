@@ -53,7 +53,7 @@ def bisseccao(a, b, precisao, f, maxIteracoes):
     tabelaResultados.field_names = ['Iteração',
                                     'a', 'b', 'x', 'f(a)', 'f(x)', '|f(x)|']
     # Limitando para 15 casas decimais que vão aparecer na tabela
-    tabelaResultados.float_format = ".15"
+    tabelaResultados.float_format = ".5"
 
     raizConvergente = None
     numIteracoes = 0

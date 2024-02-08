@@ -53,7 +53,7 @@ def derivadaNumericaDeF(x, h=0.0001):
 def Newton(x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     raizConvergente = None
 
@@ -83,7 +83,7 @@ def Newton(x, precisao, maxIteracoes):
         x = x - (valorDef / derivadaNumerica)
 
         if abs(valorDef) < precisao:
-            raizConvergente = "{:.5f}".format(x)
+            raizConvergente = "{:.15f}".format(x)
             break
 
     else:

@@ -54,12 +54,12 @@ def secante(f, x0, x1, precisao, maxInteracoes):
     # Inicializando a tabela de resultados
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = ['Iteração', 'x', 'f(x)', '|f(x)|']
-    tabelaResultados.float_format = ".5"  # Limitando para 5 casas decimais
+    tabelaResultados.float_format = ".15"  # Limitando para 15 casas decimais
 
     for numIteracoes in range(maxInteracoes):
         # Adiciona a linha na tabela para a iteração atual
         tabelaResultados.add_row(
-            [numIteracoes, f'{x1:.5f}', f'{f(x1):.5f}', f'{abs(f(x1)):.5f}'])
+            [numIteracoes, f'{x1:.15f}', f'{f(x1):.15f}', f'{abs(f(x1)):.15f}'])
 
         # Calcula a nova aproximação usando a fórmula da secante
         xAproximacao = x1 - (fx1 * (x1 - x0)) / (fx1 - fx0)
