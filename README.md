@@ -92,7 +92,7 @@ Pronto! O projeto deverá ser executado com sucesso em seu ambiente local.
 - **Nome:** Daniel Vitor da Silva
 - **Formação:** Bacharel em Ciência e Tecnologia pela Universidade Federal do Semi-Árido (UFERSA)
 - **Contato:** daniel.vitor1@hotmail.com
-- **LinkedIn:** [danielvitordevprogrammer](https://www.linkedin.com/in/daniel-vitor-dev-programmer/)
+- **LinkedIn:** [danielvitordev](www.linkedin.com/in/danielvitordev)
 
 Fique à vontade para entrar em contato para discutir o projeto ou colaborações futuras!
 
