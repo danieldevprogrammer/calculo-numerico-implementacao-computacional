@@ -5,6 +5,9 @@ from colorama import Fore, Style, init
 # Inicializando colorama (chamada uma vez no início do seu script)
 init()
 
+# Definindo o diretório do script
+script_directory = os.path.dirname(os.path.realpath(__file__))
+
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -19,8 +22,7 @@ while True:
     # Escolher a unidade
     print('\nEscolha a unidade desejada de Cálculo Numérico:')
     print(Fore.GREEN + '1. Primeira unidade' + Style.RESET_ALL)
-    print(Style.DIM +
-          '2. Segunda unidade - Em andamento...' + Style.RESET_ALL)
+    print(Fore.GREEN + '2. Segunda unidade' + Style.RESET_ALL)
     print(Style.DIM +
           '3. Terceira unidade - Em andamento...' + Style.RESET_ALL)
     print(Fore.RED + '0. Sair' + Style.RESET_ALL)
@@ -435,20 +437,64 @@ while True:
                 print(Fore.RED + 'Função inválida!\n' + Style.RESET_ALL)
 
     elif unidade == 2:
-        print(Fore.RED + '\nSegunda Unidade em construção!' +
-              Fore.YELLOW + '\nAGUARDE...' + Style.RESET_ALL)
+        while True:
+            print(Fore.GREEN + '\nSegunda Unidade' + Style.RESET_ALL)
+            # Escolher a função
+            print('Escolha o que deseja executar:')
+            print(Fore.GREEN + '1. Matriz 3x3 - Exemplo de Sala' + Style.RESET_ALL)
+            print(Fore.GREEN + '2. Matriz 8x8' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '3. Matriz 20x20' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '3. Tabelamento 1' + Style.RESET_ALL)
+            print(Fore.GREEN + '4. Tabelamento 2' + Style.RESET_ALL)
+            print(Fore.YELLOW + '0. Voltar para o menu anterior' + Style.RESET_ALL)
 
-        usuarioDigitou = -1  # Inicializar para um valor diferente de 0
-
-        while usuarioDigitou != 0:
             try:
-                usuarioDigitou = int(
-                    input('\nDigite 0 para voltar para o menu principal: '))
+                escolhaDaFuncao = int(
+                    input('Digite o número da opção desejada ou 0 para voltar: '))
             except ValueError:
-                print(
-                    Fore.RED + 'Por favor, insira um número válido.\n' + Style.RESET_ALL)
+                print(Fore.RED + 'Por favor, insira um número válido.\n' +
+                      Style.RESET_ALL)
+                continue
 
-        # Se o usuárioDigitou for 0, o código continuará para o próximo loop
+            if escolhaDaFuncao == 0:
+                break  # Voltar para o menu anterior
+
+            if escolhaDaFuncao == 1:
+                arquivo = os.path.join(
+                    script_directory, "unidade_2/matriz_3x3_exemplo_sala.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 2:
+                arquivo = os.path.join(
+                    script_directory, "unidade_2/matriz_8x8.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 5:
+                arquivo = os.path.join(
+                    script_directory, "unidade_2/matriz_20x20.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 3:
+                arquivo = os.path.join(
+                    script_directory, "unidade_2/tabelamento1.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 4:
+                arquivo = os.path.join(
+                    script_directory, "unidade_2/tabelamento2.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # rint('Finalizado.\n')
 
     elif unidade == 3:
         print(Fore.RED + '\nTerceira Unidade em construção!' +
