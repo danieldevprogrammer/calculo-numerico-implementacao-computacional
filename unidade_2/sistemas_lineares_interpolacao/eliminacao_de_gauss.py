@@ -11,7 +11,6 @@ def eliminacaoDeGauss(A, b):
     # Determina a ordem da matriz contando o número de linhas
     n = A.shape[0]
 
-    # Concatena a matriz A com o vetor b
     Ab = np.column_stack((A, b))
 
     # Contador para o número de iterações
@@ -19,14 +18,12 @@ def eliminacaoDeGauss(A, b):
 
     # Eliminação de Gauss
     for i in range(n):
-        # Pivô é o elemento da diagonal principal
         pivo = Ab[i, i]
-        # Se o pivô for zero, então vai ocorrer uma divisão por zero, encerrando a execução
+
         if pivo == 0:
             print('Erro: divisão por zero!')
             exit()
 
-        # Zera os elementos abaixo do pivô na coluna i
         for j in range(i+1, n):
             multiplicador = Ab[j, i] / pivo
             Ab[j, i:] = Ab[j, i:] - multiplicador * Ab[i, i:]

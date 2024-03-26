@@ -12,21 +12,18 @@ def fatoracaoLU(A, b):
     L = np.zeros((n, n))
     U = np.zeros((n, n))
 
-    # Inicializa a diagonal de L com 1
     for i in range(n):
         L[i, i] = 1.0
 
     for k in range(n):
-        # Calculo da linha k da matriz U
+
         for j in range(k, n):
             U[k, j] = A[k, j] - sum(L[k, p] * U[p, j] for p in range(k))
 
-        # Calculo da coluna k da matriz L
         for i in range(k+1, n):
             L[i, k] = (A[i, k] - sum(L[i, p] * U[p, k]
                        for p in range(k))) / U[k, k]
 
-    # Resolvendo o sistema de equações:
     y = np.zeros(n)
     for i in range(n):
         y[i] = b[i] - sum(L[i, j] * y[j] for j in range(i))
