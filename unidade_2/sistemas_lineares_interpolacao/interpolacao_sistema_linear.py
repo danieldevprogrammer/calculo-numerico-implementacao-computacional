@@ -26,6 +26,7 @@ def interSistemaLinear(x, y):
         f'\nOs valores de x da tabela de resolução da matriz são os coeficientes "a" do polinômio interpolador, que são respectivamente: {[f"{coef:.2f}" for coef in coeficientes]}')
 
     # Função interpoladora
+
     def fInterpoladora(x):
         y = 0
         for i in range(n):

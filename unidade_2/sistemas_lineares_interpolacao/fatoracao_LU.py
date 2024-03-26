@@ -1,9 +1,13 @@
 # Implementação do método de Fatoração LU
 import numpy as np
 from prettytable import PrettyTable
+import time
 
 
 def fatoracaoLU(A, b):
+    # Medindo o tempo de início do cálculo
+    inicioTempo = time.time()
+
     n = len(A)
     L = np.zeros((n, n))
     U = np.zeros((n, n))
@@ -33,11 +37,10 @@ def fatoracaoLU(A, b):
         x[i] = (y[i] - sum(U[i, j] * x[j] for j in range(i+1, n))) / U[i, i]
 
     # Calcula o vetor de resíduos
-    r = np.dot(A, x) - b
+    residuo = np.dot(A, x) - b
 
     # Calcula o resíduo por distância relativa
-    residuo_relativo = np.linalg.norm(r) / np.linalg.norm(b)
-
+    residuoRelativo = np.linalg.norm(residuo) / np.linalg.norm(b)
     # Definindo das casas decimais da matriz para no máximo 4 casas:
     np.set_printoptions(precision=4)
 
@@ -53,8 +56,8 @@ def fatoracaoLU(A, b):
     table = PrettyTable()
     table.field_names = ['xi', 'x', '|', 'yi', 'y']
     for i in range(len(x)):
-        table.add_row([f'x{i+1}', f'{x[i]:.4f}',
-                      '|', f'y{i+1}', f'{y[i]:.4f}'])
+        table.add_row([f'x{i+1}', f'{x[i]:.5f}',
+                      '|', f'y{i+1}', f'{y[i]:.5f}'])
     print(table)
 
     # Número de iterações é igual ao número de elementos ou 1 (para matrizes vazias)
@@ -62,6 +65,12 @@ def fatoracaoLU(A, b):
     print(f'Número de iterações: {NumeroIteracoes}')
 
     # Exibir o resíduo por distância relativa
-    print(f"Resíduo por distância relativa: {residuo_relativo}")
+    print(f'Resíduo: {residuoRelativo}')
 
-    return x, y, L, U, residuo_relativo
+    # Medindo o tempo de fim do cálculo
+    fimTempo = time.time()
+    # Calculando e mostrando o tempo total de cálculo
+    tempoTotal = fimTempo - inicioTempo
+    print(f'\nO tempo de execução foi de {tempoTotal:.6f} segundos.')
+
+    return x, y, L, U, residuoRelativo

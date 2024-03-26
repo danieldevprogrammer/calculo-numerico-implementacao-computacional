@@ -9,7 +9,7 @@ init()
 
 
 # Variável para determinar qual vai ser o tabelamento
-nome = 'Tabelamento 2'
+nome = Fore.GREEN + 'Tabelamento 2' + Style.RESET_ALL
 print(nome)
 
 # Entrada dos valores de x e y:
@@ -33,6 +33,7 @@ def tabelaDoTabelmaneto():  # Imprime a tabela com o tabelamento
 tabelaDoTabelmaneto()
 
 
+# Menu para chamar os métodos
 def main():
     while True:
         print(Fore.GREEN + f'\n{nome}' + Style.RESET_ALL)
@@ -46,25 +47,28 @@ def main():
             input('Digite o número da opção desejada ou 0 para voltar: '))
 
         if escolha == 1:
-            os.system('clear')  # Limpa a tela
-            print(f'\n1.Interpolação via Sistema Linear - {nome}')
+            os.system('clear')
+            print(
+                Fore.CYAN + f'\n1.Interpolação via Sistema Linear - {nome}' + Style.RESET_ALL)
             tabelaDoTabelmaneto()
             interpolacao_sistema_linear.interSistemaLinear(x, y)
 
         elif escolha == 2:
-            os.system('clear')  # Limpa a tela
-            print(f'\n2.Método de Lagrande - {nome}')
+            os.system('clear')
+            print(Fore.CYAN +
+                  f'\n2.Método de Lagrande - {nome}' + Style.RESET_ALL)
             tabelaDoTabelmaneto()
             interpolacao_lagrange.interLagrange(x, y, xi)
 
         elif escolha == 3:
-            os.system('clear')  # Limpa a tela
-            print(f'\n3.Método de Newton - {nome}')
+            os.system('clear')
+            print(Fore.CYAN +
+                  f'\n3.Método de Newton - {nome}' + Style.RESET_ALL)
             tabelaDoTabelmaneto()
             interpolacao_newton.interNewton(x, y, xi)
 
         elif escolha == 0:
-            os.system('clear')  # Limpa a tela
+            os.system('clear')
             print(Fore.YELLOW + '\nVoltou ao menu anterior!' + Style.RESET_ALL)
             break
         else:

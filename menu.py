@@ -441,10 +441,9 @@ while True:
             print(Fore.GREEN + '\nSegunda Unidade' + Style.RESET_ALL)
             # Escolher a função
             print('Escolha o que deseja executar:')
-            print(Fore.GREEN + '1. Matriz 3x3 - Exemplo de Sala' + Style.RESET_ALL)
-            print(Fore.GREEN + '2. Matriz 8x8' + Style.RESET_ALL)
+            print(Fore.GREEN + '1. Matriz 8x8' + Style.RESET_ALL)
             print(
-                Fore.GREEN + '3. Matriz 20x20' + Style.RESET_ALL)
+                Fore.GREEN + '2. Matriz 20x20' + Style.RESET_ALL)
             print(
                 Fore.GREEN + '3. Tabelamento 1' + Style.RESET_ALL)
             print(Fore.GREEN + '4. Tabelamento 2' + Style.RESET_ALL)
@@ -463,19 +462,12 @@ while True:
 
             if escolhaDaFuncao == 1:
                 arquivo = os.path.join(
-                    script_directory, "unidade_2/matriz_3x3_exemplo_sala.py")
-                comando = f"python3 '{arquivo}'"
-                subprocess.run(comando, shell=True)
-                # print('Finalizado.\n')
-
-            if escolhaDaFuncao == 2:
-                arquivo = os.path.join(
                     script_directory, "unidade_2/matriz_8x8.py")
                 comando = f"python3 '{arquivo}'"
                 subprocess.run(comando, shell=True)
                 # print('Finalizado.\n')
 
-            if escolhaDaFuncao == 5:
+            if escolhaDaFuncao == 2:
                 arquivo = os.path.join(
                     script_directory, "unidade_2/matriz_20x20.py")
                 comando = f"python3 '{arquivo}'"

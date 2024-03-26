@@ -3,14 +3,14 @@ def retrosubstituicao(A, b):
     # Verifica se a matriz é quadrada
     n = len(A)
     if len(A[0]) != n:
-        print("A matriz não é quadrada")
+        print('A matriz não é quadrada')
         return []
 
     # Verifica se a matriz é triangular superior
     for i in range(n):
         for j in range(i):
             if A[i][j] != 0:
-                print("A matriz não está triangularizada")
+                print('A matriz não está triangularizada')
                 return []
 
     x = [0] * n  # Inicializa uma lista para armazenar as soluções
@@ -31,6 +31,6 @@ def retrosubstituicao(A, b):
     # Imprime as soluções do sistema
     print('Resolução por Retrosubstituição:')
     for i in range(n):
-        print(f'x{i+1} = {x[i]:.4f}')
+        print(f'x{i+1} = {x[i]:.5f}')
 
     return x

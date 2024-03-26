@@ -1,9 +1,13 @@
 # Implementação do método de Eliminação de Gauss
 import numpy as np
 from prettytable import PrettyTable
+import time
 
 
 def eliminacaoDeGauss(A, b):
+    # Medindo o tempo de início do cálculo
+    inicioTempo = time.time()
+
     # Determina a ordem da matriz contando o número de linhas
     n = A.shape[0]
 
@@ -36,23 +40,29 @@ def eliminacaoDeGauss(A, b):
         x[i] = (Ab[i, -1] - np.dot(Ab[i, i+1:n], x[i+1:])) / Ab[i, i]
 
     # Calcula o vetor de resíduos
-    r = np.dot(A, x) - b
+    residuo = np.dot(A, x) - b
 
     # Calcula o resíduo por distância relativa
-    residuo_relativo = np.linalg.norm(r) / np.linalg.norm(b)
+    residuoRelativo = np.linalg.norm(residuo) / np.linalg.norm(b)
 
     # Exibição da solução
     print('A solução do sistema é: ')
     table = PrettyTable()
     table.field_names = ['xi', 'x']
     for i in range(len(x)):
-        table.add_row([f'x{i+1}', f'{x[i]:.2f}'])
+        table.add_row([f'x{i+1}', f'{x[i]:.5f}'])
     print(table)
 
     # Exibir o número de iterações
     print(f'Número de iterações: {NumeroIteracoes}')
 
     # Exibir o resíduo por distância relativa
-    print(f'Resíduo: {residuo_relativo}')
+    print(f'Resíduo: {residuoRelativo}')
 
-    return x, residuo_relativo
+    # Medindo o tempo de fim do cálculo
+    fimTempo = time.time()
+    # Calculando e mostrando o tempo total de cálculo
+    tempoTotal = fimTempo - inicioTempo
+    print(f'\nO tempo de execução foi de {tempoTotal:.6f} segundos.')
+
+    return x
