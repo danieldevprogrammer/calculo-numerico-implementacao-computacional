@@ -1,6 +1,7 @@
 import os
 import subprocess
 from colorama import Fore, Style, init
+import time
 
 # Inicializando colorama (chamada uma vez no início do seu script)
 init()
@@ -21,10 +22,9 @@ print(Style.BRIGHT + 'Aluno: \033[4mDaniel Vitor da Silva' + Style.RESET_ALL)
 while True:
     # Escolher a unidade
     print('\nEscolha a unidade desejada de Cálculo Numérico:')
-    print(Fore.GREEN + '1. Primeira unidade' + Style.RESET_ALL)
-    print(Fore.GREEN + '2. Segunda unidade' + Style.RESET_ALL)
-    print(Style.DIM +
-          '3. Terceira unidade - Em andamento...' + Style.RESET_ALL)
+    print(Fore.GREEN + '1.Primeira unidade' + Style.RESET_ALL)
+    print(Fore.GREEN + '2.Segunda unidade' + Style.RESET_ALL)
+    print(Fore.GREEN + '3.Terceira unidade' + Style.RESET_ALL)
     print(Fore.RED + '0. Sair' + Style.RESET_ALL)
 
     try:
@@ -35,6 +35,16 @@ while True:
         continue
 
     if unidade == 0:
+        # Define o tempo de espera em segundos
+        tempo_de_espera = 5
+
+        # Mensagem de encerramento
+        print(Fore.YELLOW +
+              f'O programa será encerrado em {tempo_de_espera} segundos...' + Style.RESET_ALL)
+        print(Fore.GREEN + 'Obrigado!' + Style.RESET_ALL)
+        # Espera pelo tempo especificado
+        time.sleep(tempo_de_espera)
+
         break  # Sair do loop e encerrar o programa
 
     if unidade == 1:
@@ -441,13 +451,13 @@ while True:
             print(Fore.GREEN + '\nSegunda Unidade' + Style.RESET_ALL)
             # Escolher a função
             print('Escolha o que deseja executar:')
-            print(Fore.GREEN + '1. Matriz 8x8' + Style.RESET_ALL)
+            print(Fore.GREEN + '1.Matriz 8x8' + Style.RESET_ALL)
             print(
-                Fore.GREEN + '2. Matriz 20x20' + Style.RESET_ALL)
+                Fore.GREEN + '2.Matriz 20x20' + Style.RESET_ALL)
             print(
-                Fore.GREEN + '3. Tabelamento 1' + Style.RESET_ALL)
-            print(Fore.GREEN + '4. Tabelamento 2' + Style.RESET_ALL)
-            print(Fore.YELLOW + '0. Voltar para o menu anterior' + Style.RESET_ALL)
+                Fore.GREEN + '3.Tabelamento 1' + Style.RESET_ALL)
+            print(Fore.GREEN + '4.Tabelamento 2' + Style.RESET_ALL)
+            print(Fore.YELLOW + '0.Voltar para o menu anterior' + Style.RESET_ALL)
 
             try:
                 escolhaDaFuncao = int(
@@ -486,23 +496,75 @@ while True:
                     script_directory, "unidade_2/tabelamento2.py")
                 comando = f"python3 '{arquivo}'"
                 subprocess.run(comando, shell=True)
-                # rint('Finalizado.\n')
+                # print('Finalizado.\n')
 
     elif unidade == 3:
-        print(Fore.RED + '\nTerceira Unidade em construção!' +
-              Fore.YELLOW + '\nAGUARDE...' + Style.RESET_ALL)
+        while True:
+            print(Fore.GREEN + '\nTerceira Unidade' + Style.RESET_ALL)
+            # Escolher a função
+            print('Escolha o que deseja executar:')
+            print(Fore.GREEN + '1.Tabelamento 1' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '2.Tabelamento 2' + Style.RESET_ALL)
+            print(
+                Fore.GREEN + '3.Tabelamento 3' + Style.RESET_ALL)
+            print(Fore.GREEN + '4.F1 = f(x) = x**3' + Style.RESET_ALL)
+            print(Fore.GREEN + '5.F2 = f(x)=x**2 + 2*x' + Style.RESET_ALL)
+            print(Fore.GREEN + '6.F3 = f(x)=cos(x)' + Style.RESET_ALL)
+            print(Fore.YELLOW + '0.Voltar para o menu anterior' + Style.RESET_ALL)
 
-        usuarioDigitou = -1  # Inicializar para um valor diferente de 0
-
-        while usuarioDigitou != 0:
             try:
-                usuarioDigitou = int(
-                    input('\nDigite 0 para voltar para o menu principal: '))
+                escolhaDaFuncao = int(
+                    input('Digite o número da opção desejada ou 0 para voltar: '))
             except ValueError:
-                print(
-                    Fore.RED + 'Por favor, insira um número válido.\n' + Style.RESET_ALL)
+                print(Fore.RED + 'Por favor, insira um número válido.\n' +
+                      Style.RESET_ALL)
+                continue
 
-        # Se o usuárioDigitou for 0, o código continuará para o próximo loop
+            if escolhaDaFuncao == 0:
+                break  # Voltar para o menu anterior
+
+            if escolhaDaFuncao == 1:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/tabelamento1.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 2:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/tabelamento2.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 3:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/tabelamento3.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 4:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/funcao1_itegracao.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 5:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/funcao2_itegracao.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
+
+            if escolhaDaFuncao == 6:
+                arquivo = os.path.join(
+                    script_directory, "unidade_3/funcao3_itegracao.py")
+                comando = f"python3 '{arquivo}'"
+                subprocess.run(comando, shell=True)
+                # print('Finalizado.\n')
 
     else:
         print(Fore.RED + 'Escolha de unidade inválida!\n' + Style.RESET_ALL)
