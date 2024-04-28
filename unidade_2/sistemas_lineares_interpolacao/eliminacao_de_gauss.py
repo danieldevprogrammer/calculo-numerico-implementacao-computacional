@@ -18,12 +18,14 @@ def eliminacaoDeGauss(A, b):
 
     # Eliminação de Gauss
     for i in range(n):
+        # Pivô é o elemento da diagonal principal
         pivo = Ab[i, i]
-
+        # Se o pivô for zero, então vai ocorrer uma divisão por zero, encerrando a execução
         if pivo == 0:
             print('Erro: divisão por zero!')
             exit()
 
+        # Zera os elementos abaixo do pivô na coluna i
         for j in range(i+1, n):
             multiplicador = Ab[j, i] / pivo
             Ab[j, i:] = Ab[j, i:] - multiplicador * Ab[i, i:]
