@@ -1,4 +1,11 @@
+from prettytable import PrettyTable
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+
 # Definindo a função da derivada numérica de f(x)
+
+
 def derivadaNumericaDeF(x, h=0.0001):
     # h=0.0001, é um valor muito próximo de zero, para que não ocarra um erro de indeterminação na função e assim pode calcular a derivada númerica
     return (f(x + h) - f(x)) / h

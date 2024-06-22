@@ -1,4 +1,10 @@
 # Função que encontrará a raiz por meio do metodo da Secante:
+from prettytable import PrettyTable
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+
+
 def secante(f, x0, x1, precisao, maxInteracoes):
     # Realiza as primeiras iterações manualmente
     fx0 = f(x0)

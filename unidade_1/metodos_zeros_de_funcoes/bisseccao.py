@@ -1,5 +1,13 @@
+# Implementação do Método da Bissecção:
+from prettytable import PrettyTable
+import time
+
+
 # Função que encontrará a raiz por meio do método da bissecção:
 def bisseccao(a, b, precisao, f, maxIteracoes):
+    # Medindo o tempo de início do cálculo
+    inicioTempo = time.time()
+
     # Inicialize x com o valor médio do intervalo inicial [a, b]
     x = (a + b) / 2
 
@@ -30,5 +38,21 @@ def bisseccao(a, b, precisao, f, maxIteracoes):
 
         if abs(f(x)) < precisao:
             raizConvergente = x
+
+    # Imprimindo a tabela de resultados
+    print(tabelaResultados)
+
+    # Verificando se a raiz convergente foi encontrada:
+    if raizConvergente is not None:
+        print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
+    else:
+        print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
+
+    # Medindo o tempo de fim do cálculo
+    fimTempo = time.time()
+
+    # Calculando e mostrando o tempo total de cálculo
+    tempoTotal = fimTempo - inicioTempo
+    print(f'\nO tempo de execução foi de {tempoTotal:.6f} segundos.')
 
     return tabelaResultados, raizConvergente

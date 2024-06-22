@@ -1,4 +1,10 @@
 # Função que encontrará a raiz por meio do metodo do Ponto Fixo:
+from prettytable import PrettyTable
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+
+
 def pontoFixo(a, b, x, precisao, maxIteracoes):
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [

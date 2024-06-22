@@ -1,5 +1,13 @@
+# Implementação do Método da Falsa Posição:
+from prettytable import PrettyTable
+import time
+
+
 # Função que encontrará a raiz por meio do metodo da Falsa Posição:
-def falsaPosicao(a, b, precisao, maxIteracoes):
+def falsaPosicao(a, b, precisao, maxIteracoes, f):
+    # Medindo o tempo de início do cálculo
+    inicioTempo = time.time()
+
     if f(a) * f(b) >= 0:
         raise ValueError(
             "Os valores de 'a' e 'b' devem ser tais que f(a) * f(b) < 0.")
@@ -25,5 +33,12 @@ def falsaPosicao(a, b, precisao, maxIteracoes):
             b = x
         else:
             a = x
+
+    # Medindo o tempo de fim do cálculo
+    fimTempo = time.time()
+
+    # Calculando e mostrando o tempo total de cálculo
+    tempoTotal = fimTempo - inicioTempo
+    print(f'\nO tempo de execução foi de {tempoTotal:.6f} segundos.')
 
     return tabelaResultados, raizConvergente
