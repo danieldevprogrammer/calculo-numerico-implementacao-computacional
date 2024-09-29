@@ -34,6 +34,15 @@ def falsaPosicao(a, b, precisao, maxIteracoes, f):
         else:
             a = x
 
+    # Imprimindo a tabela de resultados
+    print(tabelaResultados)
+
+    # Verificando se a raiz convergente foi encontrada:
+    if raizConvergente is not None:
+        print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
+    else:
+        print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
+
     # Medindo o tempo de fim do cálculo
     fimTempo = time.time()
 

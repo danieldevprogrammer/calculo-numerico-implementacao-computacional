@@ -1,11 +1,12 @@
 # Função que encontrará a raiz por meio do metodo do Ponto Fixo:
 from prettytable import PrettyTable
-import numpy as np
-import matplotlib.pyplot as plt
 import time
 
 
-def pontoFixo(a, b, x, precisao, maxIteracoes):
+def pontoFixo(a, b, x, f, fi, precisao, maxIteracoes):
+    # Medindo o tempo de início do cálculo
+    inicioTempo = time.time()
+
     tabelaResultados = PrettyTable()
     tabelaResultados.field_names = [
         'Iteração', 'a', 'b', 'x', 'f(x)', '|f(x)|']
@@ -24,11 +25,6 @@ def pontoFixo(a, b, x, precisao, maxIteracoes):
         if abs(x) > 1e10:
             print(
                 'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\n')
-
-            # Adicionando a mensagem ao arquivo de texto
-            with open(caminho_tabela, 'w') as file:
-                file.write(
-                    'A função está saindo de controle, para evitar um erro de overflow as iterações foram paradas!\nO erro aconteceu provavelmente por causa da má definição da função Fi.\n')
             break
 
         tabelaResultados.add_row(
@@ -39,5 +35,21 @@ def pontoFixo(a, b, x, precisao, maxIteracoes):
             break  # Sai do loop quando a precisão é atingida
     else:
         print('\nO número máximo de iterações foi atingido.')
+
+    # Medindo o tempo de fim do cálculo
+    fimTempo = time.time()
+
+    # Calculando e mostrando o tempo total de cálculo
+    tempoTotal = fimTempo - inicioTempo
+    print(f'\nO tempo de execução foi de {tempoTotal:.6f} segundos.')
+
+    # Imprimindo a tabela de resultados
+    print(tabelaResultados)
+
+    # Verificando se a raiz convergente foi encontrada:
+    if raizConvergente is not None:
+        print(f'\nRaiz convergente encontrada foi: {raizConvergente:.5f}')
+    else:
+        print('\nNão foi possível encontrar uma raiz convergente dentro do número máximo de iterações.')
 
     return tabelaResultados, raizConvergente

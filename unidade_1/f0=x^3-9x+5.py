@@ -1,6 +1,5 @@
-import numpy as np
 import os
-from metodos_zeros_de_funcoes import isolamento_de_raizes, bisseccao, falsa_posicao
+from metodos_zeros_de_funcoes import isolamento_de_raizes, bisseccao, falsa_posicao, ponto_fixo, metodo_de_newton, secante
 from colorama import Fore, Style, init
 
 
@@ -34,6 +33,11 @@ maxIteracoes = 500
 
 def f(x):
     return x**3 - 9 * x + 5
+
+
+# Definindo a função fi
+def fi(x):
+    return (x**3 + 5) / 9
 
 
 def main():
@@ -78,16 +82,19 @@ def main():
             os.system('clear')
             print(Fore.CYAN +
                   f'\n4.Método do Ponto Fixo - {nomeDaFuncao}' + Style.RESET_ALL)
+            ponto_fixo.pontoFixo(a, b, x, f, fi, precisao, maxIteracoes)
 
         elif escolha == 5:
             os.system('clear')
             print(Fore.CYAN +
                   f'\n5.Método Newton - {nomeDaFuncao}' + Style.RESET_ALL)
+            metodo_de_newton.Newton(a, b, x, f, precisao, maxIteracoes)
 
         elif escolha == 6:
             os.system('clear')
             print(Fore.CYAN +
                   f'\n6.Método da Secante - {nomeDaFuncao}' + Style.RESET_ALL)
+            secante.secante(f, a, b, precisao, maxIteracoes)
 
         elif escolha == 0:
             os.system('clear')
